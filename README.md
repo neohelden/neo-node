@@ -9,7 +9,7 @@
 
 ## Installation
 ```bash
-npm i --save neo-node
+npm i --save neohelden/neo-node
 ```
 
 ## Tasks
