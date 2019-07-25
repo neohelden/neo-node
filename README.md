@@ -19,21 +19,21 @@ const neotask = require('neo-node').task
 // processing tasks requires a queue name
 // the particle will be passed to the provided processor
 // the "processor" can then return a promise
-neotask.process('neo.aurora.intent.hello_world', function (particle) {
+neotask.process('nsx.dev.example.hello_world', function (particle) {
   return { reply: { string: 'Hi there, how are you today?' } }
 })
 
 // Using a function instead of an arrow function expression enables you to use "scoped helpers"
 // like e.g. preconfigured i18n (scoped for the respective particle)
 // more scoped helpers will be added in future releases
-neotask.process('neo.aurora.intent.hello_world', function (particle) {
+neotask.process('nsx.dev.example.hello_world', function (particle) {
   let translation = this.__('hello world')
   return { reply: { string: translation } }
 })
 
-// the task / message can contain anythin
+// the task / message can contain anything
 // for best compatibility it should be a particle
-neotask.create('neo.aurora.intent.hello_world', {
+neotask.create('nsx.dev.example.hello_world', {
   foo: 'bar'
 })
 
@@ -42,6 +42,14 @@ neotask.connect()
 
 // closing connection to the NATS
 neotask.disconnect()
+```
+
+### Timeout
+Tasks can run into timeouts if they are not being processed in a specific timeframe. The default value is defined as `TASK_TIMEOUT=8000` (8s). But you can overwrite the timeout in the `opts` parameter:
+```js
+neotask.create('nsx.dev.example.hello_world', {
+  foo: 'bar'
+}, { timeout: 3000 }) // sets the timeout for this task to 3s
 ```
 
 ## Logging (optional)
