@@ -10,10 +10,6 @@
 
 ## Installation
 ```bash
-npm i --save @neohelden/node
-```
-
-```bash
 yarn add @neohelden/node
 ```
 
@@ -95,4 +91,17 @@ const got = require('@neohelden/node').got;
 // got is the same as the official got, but with JSON mode enabled by default
 const response = await got('sindresorhus.com');
 console.log(response.body);
+```
+
+## Sentry (Exception logging)
+```js
+const sentry = require('@neohelden/node').sentry
+
+// You can use .up() to initialize Sentry
+// Most parameters will be filled out by default
+// e.g. WORKSPACE will be taken from the ENV
+//      or release will be taken from the parent package
+sentry.up({
+  release: 'v0.1.0'
+});
 ```
