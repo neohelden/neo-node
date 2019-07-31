@@ -5,5 +5,6 @@ module.exports = {
   task: require('./lib/task'),
   i18n: require('./lib/i18n'),
   got: require('./lib/got'),
+  sentry: require('./lib/sentry'),
   mustache: require('mustache')
 }
