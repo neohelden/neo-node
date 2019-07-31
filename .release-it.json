@@ -13,7 +13,7 @@
     "changelog": "git log --pretty=format:'* %s (%h)' [REV_RANGE]"
   },
   "npm": {
-    "publish": false
+    "publish": true
   },
   "github": {
     "release": true
