@@ -54,7 +54,8 @@ neotask.create('nsx.dev.example.hello_world', {
 ```
 
 ## Logging (optional)
-> Module for logging information (based on Winston).
+> Module for logging information (based on Bristol).
+
 ```js
 const logger = require('@neohelden/node').log
 
