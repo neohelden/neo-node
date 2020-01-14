@@ -20,14 +20,14 @@ const neotask = require('@neohelden/node').task
 // processing tasks requires a queue name
 // the particle will be passed to the provided processor
 // the "processor" can then return a promise
-neotask.process('nsx.dev.example.hello_world', function (particle) {
+neotask.process('nsx.dev.example.hello_world', async function (particle) {
   return { reply: { string: 'Hi there, how are you today?' } }
 })
 
 // Using a function instead of an arrow function expression enables you to use "scoped helpers"
 // like e.g. preconfigured i18n (scoped for the respective particle)
 // more scoped helpers will be added in future releases
-neotask.process('nsx.dev.example.hello_world', function (particle) {
+neotask.process('nsx.dev.example.hello_world', async function (particle) {
   let translation = this.__('hello world')
   return { reply: { string: translation } }
 })
@@ -43,6 +43,14 @@ neotask.connect()
 
 // closing connection to the NATS
 neotask.disconnect()
+```
+
+## NPQ
+```js
+const npq = require('@neohelden/node').npq
+
+// assuming the particle is defined somewhere
+npq.publish('channel.email', particle)
 ```
 
 ### Timeout
