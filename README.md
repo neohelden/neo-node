@@ -18,28 +18,31 @@ yarn add @neohelden/node
 const neotask = require('@neohelden/node').task
 
 // processing tasks requires a queue name
-// the particle will be passed to the provided processor
-// the "processor" can then return a promise
-neotask.process('nsx.dev.example.hello_world', async function (particle) {
-  return { reply: { string: 'Hi there, how are you today?' } }
+// the request object will be passed to the provided processor (a function)
+// the "processor" should use async / await
+// in case an error occurs, the exception will automatically be handled
+neotask.process('nsx.dev.example.sayHello', async function (req) {
+  if (!'user' in req) {
+    throw new Error('Username is required')
+  }
+
+  let res = `Hi there, ${req.user}`
+  return res
 })
 
 // Using a function instead of an arrow function expression enables you to use "scoped helpers"
 // like e.g. preconfigured i18n (scoped for the respective particle)
 // more scoped helpers will be added in future releases
-neotask.process('nsx.dev.example.hello_world', async function (particle) {
+neotask.process('nsx.dev.example.sayHello', async function (particle) {
   let translation = this.__('hello world')
   return { reply: { string: translation } }
 })
 
 // the task / message can contain anything
 // for best compatibility it should be a particle
-neotask.create('nsx.dev.example.hello_world', {
-  foo: 'bar'
+neotask.create('nsx.dev.example.sayHello', {
+  user: 'John'
 })
-
-// create new connection to the NATS
-neotask.connect()
 
 // closing connection to the NATS
 neotask.disconnect()
@@ -49,14 +52,14 @@ neotask.disconnect()
 ```js
 const npq = require('@neohelden/node').npq
 
-// assuming the particle is defined somewhere
+// assuming the particle is defined somewhere else
 npq.publish('channel.email', particle)
 ```
 
 ### Timeout
 Tasks can run into timeouts if they are not being processed in a specific timeframe. The default value is defined as `TASK_TIMEOUT=8000` (8s). But you can overwrite the timeout in the optional `opts` parameter:
 ```js
-neotask.create('nsx.dev.example.hello_world', {
+neotask.create('nsx.dev.example.sayHello', {
   foo: 'bar'
 }, { timeout: 3000 }) // sets the timeout for this task to 3s
 ```
