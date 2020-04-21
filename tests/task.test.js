@@ -1,12 +1,12 @@
-const neotask = require('../index').task
+const neo = require('../index')
 
 afterAll(async () => {
-  neotask.disconnect();
+  neo.task.disconnect();
 });
 
 describe('Tasks', () => {
   test(`Timeout throws exception`, async (done) => {
-    await expect(neotask.create('foobar', {}, { timeout: 1000 }))
+    await expect(neo.task.create('foobar', {}, { timeout: 1000 }))
       .rejects
       .toThrow()
 
@@ -14,22 +14,22 @@ describe('Tasks', () => {
   });
 
   test(`Normal task does not throw`, async (done) => {
-    neotask.process('barfoo', function () {
+    neo.task.process('barfoo', function () {
       return true
     })
 
-    let res = await neotask.create('barfoo', {}, { timeout: 1000 })
+    let res = await neo.task.create('barfoo', {}, { timeout: 1000 })
 
     expect(res).toBe(true);
     done();
   });
 
   test(`Error handling inside processor`, async (done) => {
-    neotask.process('error', function () {
+    neo.task.process('error', function () {
       throw new Error('Fail')
     })
 
-    await expect(neotask.create('error', {})).rejects.toThrow('Fail')
+    await expect(neo.task.create('error', {})).rejects.toThrow('Fail')
     done();
   });
 });

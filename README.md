@@ -4,8 +4,8 @@
 > Neo SDK for Node.js with some additional libraries to support the development of Neo Sentinels (NSX).
 
 ## Terminology
-- **Neotask**: A Neotask is a job / task processed or created by so called Sentinels.
-- **Sentinel**: Fancy name for a worker consuming / producing Neotasks. They are usually not that evil.
+- **Task**: A task (or Sentinel Task) is a job processed or created by so called Sentinels.
+- **Sentinel**: Fancy name for a worker consuming / producing tasks. They are usually not that evil.
 - **Particle**: All tasks / messages / responses flowing through the Neo internals are generalized as „particles“. Particles can be the payload for tasks, the response to the Neo client or just some metadata. Particles have to be objects.
 
 ## Installation
@@ -15,13 +15,13 @@ yarn add @neohelden/node
 
 ## Tasks
 ```js
-const neotask = require('@neohelden/node').task
+const neo = require('@neohelden/node')
 
 // processing tasks requires a queue name
 // the request object will be passed to the provided processor (a function)
 // the "processor" should use async / await
 // in case an error occurs, the exception will automatically be handled
-neotask.process('nsx.dev.example.sayHello', async function (req) {
+neo.task.process('nsx.dev.example.sayHello', async function (req) {
   if (!'user' in req) {
     throw new Error('Username is required')
   }
@@ -33,19 +33,19 @@ neotask.process('nsx.dev.example.sayHello', async function (req) {
 // Using a function instead of an arrow function expression enables you to use "scoped helpers"
 // like e.g. preconfigured i18n (scoped for the respective particle)
 // more scoped helpers will be added in future releases
-neotask.process('nsx.dev.example.sayHello', async function (particle) {
+neo.task.process('nsx.dev.example.sayHello', async function (particle) {
   let translation = this.__('hello world')
   return { reply: { string: translation } }
 })
 
 // the task / message can contain anything
 // for best compatibility it should be a particle
-neotask.create('nsx.dev.example.sayHello', {
+neo.task.create('nsx.dev.example.sayHello', {
   user: 'John'
 })
 
 // closing connection to the NATS
-neotask.disconnect()
+neo.task.disconnect()
 ```
 
 ## NPQ
@@ -59,7 +59,7 @@ npq.publish('channel.email', particle)
 ### Timeout
 Tasks can run into timeouts if they are not being processed in a specific timeframe. The default value is defined as `TASK_TIMEOUT=8000` (8s). But you can overwrite the timeout in the optional `opts` parameter:
 ```js
-neotask.create('nsx.dev.example.sayHello', {
+neo.task.create('nsx.dev.example.sayHello', {
   foo: 'bar'
 }, { timeout: 3000 }) // sets the timeout for this task to 3s
 ```
