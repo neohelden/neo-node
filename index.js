@@ -9,5 +9,5 @@ module.exports = {
   got: require('./lib/got'),
   sentry: require('./lib/sentry'),
   npq: task.npq,
-  mustache: require('mustache')
+  mustache: require('mustache'),
 }
