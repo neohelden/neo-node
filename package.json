@@ -4,9 +4,8 @@
   "description": "Meta library for common Node.js dependencies necessary / recommended for developing Neo Sentinels.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "format": "prettier --write .",
-    "lint": "prettier --check ."
+    "test": "prettier --check .",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -26,7 +25,8 @@
     "mustache": "^4.0.1",
     "nats": "1.4.12",
     "pino": "6.7.0",
-    "pino-pretty": "4.3.0"
+    "pino-pretty": "4.3.0",
+    "prettier": "^2.1.2"
   },
   "devDependencies": {
     "jest": "26.6.0"
