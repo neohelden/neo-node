@@ -4,7 +4,9 @@
   "description": "Meta library for common Node.js dependencies necessary / recommended for developing Neo Sentinels.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "format": "prettier --write .",
+    "lint": "prettier --check ."
   },
   "repository": {
     "type": "git",
