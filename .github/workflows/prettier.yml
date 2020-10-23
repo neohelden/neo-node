@@ -1,5 +1,5 @@
 on: push
-name: Main
+name: Prettier
 jobs:
   lint-and-test:
     name: Test
