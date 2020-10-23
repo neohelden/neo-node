@@ -1,8 +1,8 @@
 on: push
 name: Prettier
 jobs:
-  lint-and-test:
-    name: Test
+  lint:
+    name: prettier-lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -10,7 +10,7 @@ jobs:
         uses: CultureHQ/actions-yarn@master
         with:
           args: install
-      - name: Test
+      - name: Lint
         uses: CultureHQ/actions-yarn@master
         with:
           args: test
