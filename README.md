@@ -16,6 +16,13 @@
 yarn add @neohelden/node
 ```
 
+## Configuration
+
+The Neo SDK can be configured through environment variables (ENVs in short). The following ENVs are supported:
+
+- `NPQ_DISABLE_AUTOCONNECT`: Set to `true` in order to prevent the SDK from autoconnecting.
+- `NPQ_NAME`: A identifiable name for your Sentinel.
+
 ## Tasks
 
 ```js
