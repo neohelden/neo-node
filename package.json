@@ -19,7 +19,6 @@
   "homepage": "https://github.com/neohelden/neo-node#readme",
   "dependencies": {
     "@sentry/node": "6.2.0",
-    "got": "11.8.1",
     "i18n": "0.13.2",
     "lodash": "4.17.21",
     "mustache": "4.1.0",

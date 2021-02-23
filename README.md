@@ -115,18 +115,6 @@ let fixed_locale = {
 fixed_locale.__('hello world') // would result in "hallo welt"
 ```
 
-## HTTP requests via [Got](https://www.npmjs.com/package/got)
-
-> Got is a human-friendly and powerful HTTP request library.
-
-```js
-const got = require('@neohelden/node').got
-
-// got is the same as the official got, but with JSON mode enabled by default
-const response = await got('sindresorhus.com')
-console.log(response.body)
-```
-
 ## Sentry (Exception logging)
 
 ```js
