@@ -18,14 +18,14 @@
   },
   "homepage": "https://github.com/neohelden/neo-node#readme",
   "dependencies": {
-    "@sentry/node": "5.28.0",
-    "got": "11.8.0",
+    "@sentry/node": "6.2.0",
+    "got": "11.8.1",
     "i18n": "0.13.2",
-    "lodash": "4.17.20",
-    "mustache": "^4.0.1",
+    "lodash": "4.17.21",
+    "mustache": "4.1.0",
     "nats": "1.4.12",
-    "pino": "6.7.0",
-    "pino-pretty": "4.3.0",
+    "pino": "6.11.1",
+    "pino-pretty": "4.5.0",
     "prettier": "2.2.1"
   },
   "devDependencies": {
