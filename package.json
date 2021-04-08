@@ -11,23 +11,22 @@
     "type": "git",
     "url": "git+https://github.com/neohelden/neo-node.git"
   },
-  "author": "Maik Hummel <maik@neohelden.com> (https://neohelden.com)",
+  "author": "Neohelden GmbH <hello@neohelden.com> (https://neohelden.com)",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/neohelden/neo-node/issues"
   },
   "homepage": "https://github.com/neohelden/neo-node#readme",
   "dependencies": {
-    "@sentry/node": "6.2.3",
+    "@sentry/node": "6.2.5",
     "i18n": "0.13.2",
     "lodash": "4.17.21",
     "mustache": "4.2.0",
     "nats": "1.4.12",
-    "pino": "6.11.2",
-    "pino-pretty": "4.7.1",
-    "prettier": "2.2.1"
+    "pino": "6.11.2"
   },
   "devDependencies": {
-    "jest": "26.6.3"
+    "jest": "26.6.3",
+    "prettier": "2.2.1"
   }
 }
