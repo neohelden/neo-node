@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.16.0](https://github.com/neohelden/neo-node/compare/1.15.0...1.16.0) - 2021-04-12
+
+### Merged
+
+- Logging: Set context for NPQ [`#18`](https://github.com/neohelden/neo-node/pull/18)
+- Enable JSON logging [`#17`](https://github.com/neohelden/neo-node/pull/17)
+
+### Commits
+
+- Release 1.16.0 [`fa6e037`](https://github.com/neohelden/neo-node/commit/fa6e0372e45c2b93493569a52a239dac5752fae6)
+
+## [1.15.0](https://github.com/neohelden/neo-node/compare/1.14.0...1.15.0) - 2021-03-30
+
+### Commits
+
+- Release 1.15.0 [`660c2cd`](https://github.com/neohelden/neo-node/commit/660c2cddc830f524e88eb5b0e15470093c8f7ba4)
+
+## [1.14.0](https://github.com/neohelden/neo-node/compare/1.13.0...1.14.0) - 2021-03-30
+
+### Commits
+
+- Update dependencies [`54dc475`](https://github.com/neohelden/neo-node/commit/54dc475fb0c0efbae96ae87065426c075cd79805)
+- Update changelog [`61898ec`](https://github.com/neohelden/neo-node/commit/61898ec0e07d54962cae66c73ca7695227964e8a)
+- Remove support for got [`145d810`](https://github.com/neohelden/neo-node/commit/145d810be88cd7968a44f010ab9f6ac5095cb6d2)
+- Release 1.14.0 [`0148a36`](https://github.com/neohelden/neo-node/commit/0148a3626d84b38a9492d1cbf5565ceb920736b6)
+
 ## [1.13.0](https://github.com/neohelden/neo-node/compare/1.12.1...1.13.0) - 2021-02-23
 
 ### Commits
