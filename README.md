@@ -24,7 +24,7 @@ The Neo SDK can be configured through environment variables (ENVs in short). The
 - `NPQ_NAME`: A identifiable name for your Sentinel.
 - `NPQ_CA`: A base64 encoded CA used for The [NATS TLS Option](https://docs.nats.io/developing-with-nats/security/tls)
 - `NPQ_CERT`: A base64 encoded string used as a client certificate (signed by the `NPQ_CA`)
-- `NPQ_CERT_KEY`: A base64 encoded private key belonging to the `NPQ_CERT`. 
+- `NPQ_CERT_KEY`: A base64 encoded private key belonging to the `NPQ_CERT`.
 
 ## Tasks
 
